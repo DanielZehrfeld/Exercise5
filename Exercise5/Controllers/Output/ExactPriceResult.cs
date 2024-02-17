@@ -1,14 +1,18 @@
-﻿namespace Exercise5.Controllers.Output
-{
-    public class ExactPriceResult
-    {
-        public decimal Price { get; }
-        public Article[] Articles { get; }
+﻿using System.Text.Json.Serialization;
 
-        public ExactPriceResult(decimal price, Article[] articles)
-        {
-            Price = price;
-            Articles = articles;
-        }
+namespace Exercise5.Controllers.Output;
+
+public class ExactPriceResult
+{
+    [JsonPropertyName("Price")]
+    public decimal Price { get; }
+
+    [JsonPropertyName("Articles")]
+    public ResultArticle[] Articles { get; }
+
+    public ExactPriceResult(decimal price, ResultArticle[] articles)
+    {
+        Price = price;
+        Articles = articles;
     }
 }

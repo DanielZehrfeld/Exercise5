@@ -1,16 +1,24 @@
-﻿namespace Exercise5.ProductReader.Input
+﻿using System.Text.Json.Serialization;
+
+namespace Exercise5.ProductReader.Input;
+
+public class JsonArticle
 {
-    public class JsonArticle
-    {
+    [JsonPropertyName("Id")]
+    public long? Id { get; set; }
 
-        public long? Id { get; }
-        public string? ShortDescription { get; }
+    [JsonPropertyName("ShortDescription")]
+    public string? ShortDescription { get; set; }
 
-        public decimal? Price { get; }
-        public string? Unit { get; }
-        public string? pricePerUnitText { get; }
-        public string? Image { get; }
+    [JsonPropertyName("Price")]
+    public decimal? Price { get; set; }
 
-    }
+    [JsonPropertyName("Unit")]
+    public string? Unit { get; set; }
 
+    [JsonPropertyName("PricePerUnitText")]
+    public string? PricePerUnitText { get; set; }
+
+    [JsonPropertyName("Image")]
+    public string? Image { get; set; }
 }

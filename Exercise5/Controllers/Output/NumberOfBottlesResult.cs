@@ -1,15 +1,18 @@
-﻿namespace Exercise5.Controllers.Output
-{
-    public class NumberOfBottlesResult
-    {
-        //Todo json serializer attributes
-        public int NumberOfBottles { get; }
-        public Article[] Articles { get; }
+﻿using System.Text.Json.Serialization;
 
-        public NumberOfBottlesResult(int numberOfBottles, Article[] articles)
-        {
-            NumberOfBottles = numberOfBottles;
-            Articles = articles;
-        }
+namespace Exercise5.Controllers.Output;
+
+public class NumberOfBottlesResult
+{
+    [JsonPropertyName("NumberOfBottles")]
+    public int NumberOfBottles { get; }
+
+    [JsonPropertyName("Articles")]
+    public ResultArticle[] Articles { get; }
+
+    public NumberOfBottlesResult(int numberOfBottles, ResultArticle[] articles)
+    {
+        NumberOfBottles = numberOfBottles;
+        Articles = articles;
     }
 }

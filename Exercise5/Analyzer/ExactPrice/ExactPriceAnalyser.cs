@@ -1,6 +1,5 @@
-﻿namespace Exercise5.Analyzer.ExactPrice
+﻿namespace Exercise5.Analyzer.ExactPrice;
+
+public class ExactPriceAnalyser
 {
-    public class ExactPriceAnalyser
-    {
-    }
 }

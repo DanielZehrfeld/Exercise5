@@ -5,5 +5,5 @@ namespace Exercise5.Analyzer.NumberOfBottles;
 
 public interface INumberOfBottlesAnalyser
 {
-    NumberOfBottlesResult GetMaxNumberOfBottlesArticles(IEnumerable<AnalysedArticle> articles);
+    NumberOfBottlesResult GetMaxNumberOfBottlesArticles(IReadOnlyCollection<AnalysedArticle> articles);
 }

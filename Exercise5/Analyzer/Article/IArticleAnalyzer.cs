@@ -4,5 +4,5 @@ namespace Exercise5.Analyzer.Article;
 
 public interface IArticleAnalyzer
 {
-    IEnumerable<AnalysedArticle> Analyse(IEnumerable<ProductReader.Article> articles);
+    IReadOnlyCollection<AnalysedArticle> Analyse(IEnumerable<ProductReader.Article> articles);
 }

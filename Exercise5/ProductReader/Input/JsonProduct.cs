@@ -1,15 +1,21 @@
-﻿namespace Exercise5.ProductReader.Input
+﻿using System.Text.Json.Serialization;
+
+namespace Exercise5.ProductReader.Input;
+
+public class JsonProduct
 {
-    public class JsonProduct
-    {
-        public long? Id { get; }
-        public string? BrandName { get; }
-        public string? Name { get; }
-        public string? DescriptionText { get; }
+    [JsonPropertyName("Id")]
+    public long? Id { get; set; }
 
+    [JsonPropertyName("BrandName")]
+    public string? BrandName { get; set; }
 
-        public JsonArticle[]? Articles { get; }
+    [JsonPropertyName("Name")]
+    public string? Name { get; set; }
 
+    [JsonPropertyName("DescriptionText")]
+    public string? DescriptionText { get; set; }
 
-    }
+    [JsonPropertyName("Articles")]
+    public JsonArticle[]? Articles { get; set; }
 }

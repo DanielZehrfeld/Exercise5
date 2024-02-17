@@ -1,18 +1,21 @@
 ﻿using Exercise5.ProductReader.Input;
 
-namespace Exercise5.ProductReader.Extensions
+namespace Exercise5.ProductReader.Extensions;
+
+public static class ArticleExt
 {
-    public static class ArticleExt
+    public static Article? ConvertArticleToResultProductData(this JsonArticle jsonArticle, long? productId)
     {
-        public static Article ConvertArticleToResultProductData(this Input.JsonArticle jsonArticle, long productId)
-        {
-            return new Article(
-                productId: productId,
-                articleId: jsonArticle.Id,
-                articleUnit: jsonArticle.Unit, //Todo nullwerte, fehlende werte, decimal mit komma, null-arrays!
+        var isValid = productId.HasValue && jsonArticle.Id.HasValue;
+
+        return isValid
+            ? new Article(
+                productId: productId ?? 0,
+                articleId: jsonArticle.Id ?? 0,
+                articleUnit: jsonArticle.Unit ?? string.Empty,
                 articlePrice: jsonArticle.Price,
-                articleShortDescription: jsonArticle.ShortDescription,
-                articlePricePerUnitText: jsonArticle.pricePerUnitText);
-        }
+                articleShortDescription: jsonArticle.ShortDescription ?? string.Empty,
+                articlePricePerUnitText: jsonArticle.PricePerUnitText ?? string.Empty)
+            : default;
     }
 }

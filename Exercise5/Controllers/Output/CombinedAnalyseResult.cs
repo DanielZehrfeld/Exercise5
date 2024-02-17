@@ -1,18 +1,24 @@
-﻿namespace Exercise5.Controllers.Output
-{
-    public class CombinedAnalyseResult
-    {
-        public ExactPriceResult ExactPriceResult { get; }
-        public NumberOfBottlesResult NumberOfBottlesResult { get; }
-        public PricePerLitreResult PricePerLitreResult { get; }
+﻿using System.Text.Json.Serialization;
 
-        public CombinedAnalyseResult(ExactPriceResult exactPriceResult,
-            NumberOfBottlesResult numberOfBottlesResult,
-            PricePerLitreResult pricePerLitreResult)
-        {
-            ExactPriceResult = exactPriceResult;
-            NumberOfBottlesResult = numberOfBottlesResult;
-            PricePerLitreResult = pricePerLitreResult;
-        }
+namespace Exercise5.Controllers.Output;
+
+public class CombinedAnalyseResult
+{
+    [JsonPropertyName("ExactPriceResult")]
+    public ExactPriceResult ExactPriceResult { get; }
+
+    [JsonPropertyName("NumberOfBottlesResult")]
+    public NumberOfBottlesResult NumberOfBottlesResult { get; }
+
+    [JsonPropertyName("PricePerLitreResult")]
+    public PricePerLitreResult PricePerLitreResult { get; }
+
+    public CombinedAnalyseResult(ExactPriceResult exactPriceResult,
+        NumberOfBottlesResult numberOfBottlesResult,
+        PricePerLitreResult pricePerLitreResult)
+    {
+        ExactPriceResult = exactPriceResult;
+        NumberOfBottlesResult = numberOfBottlesResult;
+        PricePerLitreResult = pricePerLitreResult;
     }
 }

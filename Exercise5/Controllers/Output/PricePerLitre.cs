@@ -1,14 +1,18 @@
-﻿namespace Exercise5.Controllers.Output
-{
-    public class PricePerLitre
-    {
-        public decimal PricePerLitre { get; }
-        public Article Article { get; }
+﻿using System.Text.Json.Serialization;
 
-        public PricePerLitre(decimal pricePerLitre, Article article)
-        {
-            PricePerLitre = pricePerLitre;
-            Article = article;
-        }
+namespace Exercise5.Controllers.Output;
+
+public class PricePerLitre
+{
+    [JsonPropertyName("Price")]
+    public decimal Price { get; }
+
+    [JsonPropertyName("Article")]
+    public ResultArticle Article { get; }
+
+    public PricePerLitre(decimal price, ResultArticle article)
+    {
+        Price = price;
+        Article = article;
     }
 }

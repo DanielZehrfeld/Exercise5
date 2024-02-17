@@ -1,15 +1,14 @@
-﻿namespace Exercise5.ProductReader
+﻿namespace Exercise5.ProductReader;
+
+public class RestServiceDataReader : IRestServiceDataReader
 {
-    public class RestServiceDataReader : IRestServiceDataReader
+    public async Task<string> GetStringContentAsync(string uri)
     {
-        public async Task<string> GetStringContentAsync(string uri)
-        {
-            using var httpClient = new HttpClient();
-            using var response = await httpClient.GetAsync(uri);
+        using var httpClient = new HttpClient();
+        using var response = await httpClient.GetAsync(uri);
 
-            response.EnsureSuccessStatusCode();
+        response.EnsureSuccessStatusCode();
 
-            return await response.Content.ReadAsStringAsync();
-        }
+        return await response.Content.ReadAsStringAsync();
     }
 }

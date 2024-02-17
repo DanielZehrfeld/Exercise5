@@ -1,6 +1,5 @@
-﻿namespace Exercise5.Analyzer.PricePerLitre
+﻿namespace Exercise5.Analyzer.PricePerLitre;
+
+public class PricePerLitreAnalyser
 {
-    public class PricePerLitreAnalyser
-    {
-    }
 }

@@ -1,14 +1,18 @@
-﻿namespace Exercise5.Controllers.Output
-{
-    public class PricePerLitreResult
-    {
-        public PricePerLitre Max { get; }
-        public PricePerLitre Min { get; }
+﻿using System.Text.Json.Serialization;
 
-        public PricePerLitreResult(PricePerLitre max, PricePerLitre min)
-        {
-            Max = max;
-            Min = min;
-        }
+namespace Exercise5.Controllers.Output;
+
+public class PricePerLitreResult
+{
+    [JsonPropertyName("Min")]
+    public PricePerLitre Min { get; }
+
+    [JsonPropertyName("Max")]
+    public PricePerLitre Max { get; }
+
+    public PricePerLitreResult(PricePerLitre max, PricePerLitre min)
+    {
+        Max = max;
+        Min = min;
     }
 }
