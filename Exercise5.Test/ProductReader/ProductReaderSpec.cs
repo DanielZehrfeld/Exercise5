@@ -10,7 +10,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Exercise5.Test.ProductReader;
 
-public abstract class ProductReaderSpecs : Spec
+public abstract class ProductReaderSpec : Spec
 {
     protected const string UriToLoad = "UriToLoad";
 
@@ -32,7 +32,7 @@ public abstract class ProductReaderSpecs : Spec
 }
 
 [TestClass]
-public class Wenn_valide_Testdaten_gelesen_werden : ProductReaderSpecs
+public class Wenn_valide_Testdaten_gelesen_werden : ProductReaderSpec
 {
     private const string TestData = @"
 [
@@ -99,7 +99,7 @@ public class Wenn_valide_Testdaten_gelesen_werden : ProductReaderSpecs
 }
 
 [TestClass]
-public class Wenn_leere_Testdaten_gelesen_werden : ProductReaderSpecs
+public class Wenn_leere_Testdaten_gelesen_werden : ProductReaderSpec
 {
     private const string TestData = "";
 
@@ -118,7 +118,7 @@ public class Wenn_leere_Testdaten_gelesen_werden : ProductReaderSpecs
 }
 
 [TestClass]
-public class Wenn_in_den_Testdaten_Produkten_Angaben_fehlen : ProductReaderSpecs
+public class Wenn_in_den_Testdaten_Produkten_Angaben_fehlen : ProductReaderSpec
 {
     private const string TestData = @"
 [
@@ -165,7 +165,7 @@ public class Wenn_in_den_Testdaten_Produkten_Angaben_fehlen : ProductReaderSpecs
 }
 
 [TestClass]
-public class Wenn_in_den_Testdaten_Produk_oder_Artikel_ID_fehlen : ProductReaderSpecs
+public class Wenn_in_den_Testdaten_Produk_oder_Artikel_ID_fehlen : ProductReaderSpec
 {
     private const string TestData = @"
 [

@@ -2,5 +2,5 @@
 
 internal interface IShortDescriptionTextAnalyser
 {
-    (int numberUfUnbits, bool hasError) ResolveNumberOfUnits(string shortDescription);
+    int? ResolveNumberOfUnits(string shortDescription);
 }

@@ -2,9 +2,9 @@
 
 internal class ShortDescriptionTextAnalyser : IShortDescriptionTextAnalyser
 {
-    public (int numberUfUnbits, bool hasError) ResolveNumberOfUnits(string shortDescription)
+    public int? ResolveNumberOfUnits(string shortDescription)
     {
 
-        return (0, false); //ToDo
+        return 0; //ToDo
     }
 }

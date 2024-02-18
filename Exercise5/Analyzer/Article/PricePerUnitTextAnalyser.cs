@@ -2,28 +2,23 @@
 
 internal class PricePerUnitTextAnalyser : IPricePerUnitTextAnalyser
 {
-    public (decimal pricePerLiter, bool hasError) ResolvePricePerLiter(string pricePerUnit)
+    public decimal? ResolvePricePerLiter(string pricePerUnit)
     {
+        decimal? result = default;
 
         var trimmed = pricePerUnit.Trim(' ', '(', ')');
-
         var unitPosition = trimmed.IndexOf("€/Liter", StringComparison.Ordinal);
 
         if (unitPosition > 0)
         {
-            var priceString = trimmed.Substring(0, unitPosition);
+            var priceString = trimmed[..unitPosition];
 
-
-            if (decimal.TryParse(priceString, out var result))
+            if (decimal.TryParse(priceString, out var parseResult))
             {
-
+                result = parseResult;
             }
-
-
-
         }
 
-
-        return (0, true); // ToDo
+        return result;
     }
 }
