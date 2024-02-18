@@ -1,5 +1,5 @@
-﻿using Exercise5.Analyzer.Article;
-using Exercise5.Analyzer.NumberOfBottles;
+﻿using Exercise5.Analyzer;
+using Exercise5.Analyzer.Article;
 using Exercise5.ProductReader;
 
 namespace Exercise5.Installer;
