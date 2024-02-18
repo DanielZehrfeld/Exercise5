@@ -7,30 +7,24 @@ using Microsoft.AspNetCore.Mvc;
 namespace Exercise5.Controllers;
 
 [ApiController]
-[Route("[controller]")]
-public class BeerAnalyser : ControllerBase
+[Route("api/products/analyse")]
+public class NumberOfBottlesController : ControllerBase
 {
-    private readonly ILogger<BeerAnalyser> _logger;
+    private readonly IProductReader _productReader;
+    private readonly IArticleAnalyzer _articleAnalyzer;
+    private readonly INumberOfBottlesAnalyser _numberOfBottlesAnalyser;
 
-
-    private IProductReader _productReader;
-    private IArticleAnalyzer _articleAnalyzer;
-    private INumberOfBottlesAnalyser _numberOfBottlesAnalyser;
-
-    public BeerAnalyser(IProductReader productReader,
-        ILogger<BeerAnalyser> logger,
+    public NumberOfBottlesController(IProductReader productReader,
         IArticleAnalyzer articleAnalyzer,
         INumberOfBottlesAnalyser numberOfBottlesAnalyser)
     {
         _productReader = productReader;
-        _logger = logger;
         _articleAnalyzer = articleAnalyzer;
         _numberOfBottlesAnalyser = numberOfBottlesAnalyser;
     }
 
-
-    [HttpGet(Name = "GetWeatherForecast")]
-    public async Task<NumberOfBottlesResult> NumberOfBottles(string url)
+    [HttpGet(Name = "maxNumberOfBottles")]
+    public async Task<NumberOfBottlesResult> MaxNumberOfBottles(string url)
     {
         var products = await _productReader.LoadProductsAsync(url);
 

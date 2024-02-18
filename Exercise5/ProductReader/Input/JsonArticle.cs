@@ -4,21 +4,21 @@ namespace Exercise5.ProductReader.Input;
 
 public class JsonArticle
 {
-    [JsonPropertyName("Id")]
+    [JsonPropertyName("id")]
     public long? Id { get; set; }
 
-    [JsonPropertyName("ShortDescription")]
+    [JsonPropertyName("shortDescription")]
     public string? ShortDescription { get; set; }
 
-    [JsonPropertyName("Price")]
+    [JsonPropertyName("price")]
     public decimal? Price { get; set; }
 
-    [JsonPropertyName("Unit")]
+    [JsonPropertyName("unit")]
     public string? Unit { get; set; }
 
-    [JsonPropertyName("PricePerUnitText")]
+    [JsonPropertyName("pricePerUnitText")]
     public string? PricePerUnitText { get; set; }
 
-    [JsonPropertyName("Image")]
+    [JsonPropertyName("image")]
     public string? Image { get; set; }
 }

@@ -1,11 +1,13 @@
 using Exercise5.Installer;
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("Exercise5.Test")]
 
 var builder = WebApplication.CreateBuilder(args);
 
 Installer.ConfigureServices(builder.Services);
 
 builder.Services.AddControllers();
-
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -18,7 +20,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
 
 app.MapControllers();

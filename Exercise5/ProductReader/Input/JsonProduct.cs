@@ -4,18 +4,18 @@ namespace Exercise5.ProductReader.Input;
 
 public class JsonProduct
 {
-    [JsonPropertyName("Id")]
+    [JsonPropertyName("id")]
     public long? Id { get; set; }
 
-    [JsonPropertyName("BrandName")]
+    [JsonPropertyName("brandName")]
     public string? BrandName { get; set; }
 
-    [JsonPropertyName("Name")]
+    [JsonPropertyName("name")]
     public string? Name { get; set; }
 
-    [JsonPropertyName("DescriptionText")]
+    [JsonPropertyName("descriptionText")]
     public string? DescriptionText { get; set; }
 
-    [JsonPropertyName("Articles")]
+    [JsonPropertyName("articles")]
     public JsonArticle[]? Articles { get; set; }
 }
