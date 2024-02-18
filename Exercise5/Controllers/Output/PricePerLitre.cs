@@ -2,7 +2,7 @@
 
 namespace Exercise5.Controllers.Output;
 
-internal class PricePerLitre
+public class PricePerLitre
 {
     [JsonPropertyName("Price")]
     public decimal Price { get; }

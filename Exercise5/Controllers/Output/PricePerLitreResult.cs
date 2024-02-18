@@ -2,7 +2,7 @@
 
 namespace Exercise5.Controllers.Output;
 
-internal class PricePerLitreResult
+public class PricePerLitreResult
 {
     [JsonPropertyName("Min")]
     public PricePerLitre Min { get; }

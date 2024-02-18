@@ -2,7 +2,7 @@
 
 namespace Exercise5.Controllers.Output;
 
-internal class NumberOfBottlesResult
+public class NumberOfBottlesResult
 {
     [JsonPropertyName("NumberOfBottles")]
     public int NumberOfBottles { get; }
