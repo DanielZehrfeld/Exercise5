@@ -17,7 +17,7 @@ internal class NumberOfBottlesAnalyser : INumberOfBottlesAnalyser
 
         return maxBottleItems != default
             ? CreateResultItems(maxBottleItems.NumberOfBottles, maxBottleItems.Items)
-            : new NumberOfBottlesResult(0, Array.Empty<ResultArticle>());
+            : new NumberOfBottlesResult(0, []);
     }
 
     private static NumberOfBottlesResult CreateResultItems(int count, IEnumerable<AnalysedArticle> articles)

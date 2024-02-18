@@ -2,17 +2,11 @@
 
 namespace Exercise5.Controllers.Output;
 
-public class ExactPriceResult
+public class ExactPriceResult(decimal price, ResultArticle[] articles)
 {
-    [JsonPropertyName("Price")]
-    public decimal Price { get; }
+    [JsonPropertyName("price")]
+    public decimal Price { get; } = price;
 
-    [JsonPropertyName("Articles")]
-    public ResultArticle[] Articles { get; }
-
-    public ExactPriceResult(decimal price, ResultArticle[] articles)
-    {
-        Price = price;
-        Articles = articles;
-    }
+    [JsonPropertyName("articles")]
+    public ResultArticle[] Articles { get; } = articles;
 }

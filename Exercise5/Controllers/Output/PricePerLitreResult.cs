@@ -2,17 +2,11 @@
 
 namespace Exercise5.Controllers.Output;
 
-public class PricePerLitreResult
+public class PricePerLitreResult(PricePerLitre? min, PricePerLitre? max)
 {
-    [JsonPropertyName("Min")]
-    public PricePerLitre Min { get; }
+    [JsonPropertyName("min")]
+    public PricePerLitre? Min { get; } = min;
 
-    [JsonPropertyName("Max")]
-    public PricePerLitre Max { get; }
-
-    public PricePerLitreResult(PricePerLitre max, PricePerLitre min)
-    {
-        Max = max;
-        Min = min;
-    }
+    [JsonPropertyName("max")]
+    public PricePerLitre? Max { get; } = max;
 }

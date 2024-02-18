@@ -2,17 +2,11 @@
 
 namespace Exercise5.Controllers.Output;
 
-public class ResultArticle
+public class ResultArticle(long productId, long articleId)
 {
-    [JsonPropertyName("ProductId")]
-    public long ProductId { get; }
+    [JsonPropertyName("productId")]
+    public long ProductId { get; } = productId;
 
-    [JsonPropertyName("Id")]
-    public long ArticleId { get; }
-
-    public ResultArticle(long productId, long articleId)
-    {
-        ProductId = productId;
-        ArticleId = articleId;
-    }
+    [JsonPropertyName("articleId")]
+    public long ArticleId { get; } = articleId;
 }

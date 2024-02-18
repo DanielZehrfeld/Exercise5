@@ -1,23 +1,15 @@
 ﻿namespace Exercise5.Analyzer.Article;
 
-internal class AnalysedArticle
+public class AnalysedArticle(
+    long productId,
+    long articleId,
+    decimal? pricePerLiter,
+    decimal? totalPrice,
+    int? numberOfUnits)
 {
-    public long ProductId { get; }
-    public long ArticleId { get; }
-    public decimal? PricePerLiter { get; }
-    public decimal? TotalPrice { get; }
-    public int? NumberOfUnits { get; }
-
-    public AnalysedArticle(long productId,
-        long articleId,
-        decimal? pricePerLiter,
-        decimal? totalPrice,
-        int? numberOfUnits)
-    {
-        ProductId = productId;
-        ArticleId = articleId;
-        PricePerLiter = pricePerLiter;
-        TotalPrice = totalPrice;
-        NumberOfUnits = numberOfUnits;
-    }
+    public long ProductId { get; } = productId;
+    public long ArticleId { get; } = articleId;
+    public decimal? PricePerLiter { get; } = pricePerLiter;
+    public decimal? TotalPrice { get; } = totalPrice;
+    public int? NumberOfUnits { get; } = numberOfUnits;
 }

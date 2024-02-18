@@ -1,16 +1,8 @@
 ﻿namespace Exercise5.Analyzer.Article;
 
-internal class ArticlesAnalyzer : IArticlesAnalyzer
+internal class ArticlesAnalyzer(IPricePerUnitTextAnalyser pricePerUnitTextAnalyser, IShortDescriptionTextAnalyser shortDescriptionTextAnalyser)
+    : IArticlesAnalyzer
 {
-    private readonly IPricePerUnitTextAnalyser _pricePerUnitTextAnalyser;
-    private readonly IShortDescriptionTextAnalyser _shortDescriptionTextAnalyser;
-
-    public ArticlesAnalyzer(IPricePerUnitTextAnalyser pricePerUnitTextAnalyser, IShortDescriptionTextAnalyser shortDescriptionTextAnalyser)
-    {
-        _pricePerUnitTextAnalyser = pricePerUnitTextAnalyser;
-        _shortDescriptionTextAnalyser = shortDescriptionTextAnalyser;
-    }
-
     public IReadOnlyCollection<AnalysedArticle> Analyse(IEnumerable<ProductReader.Article> articles)
         => articles
             .Select(AnalyseArticle)
@@ -18,8 +10,8 @@ internal class ArticlesAnalyzer : IArticlesAnalyzer
 
     private AnalysedArticle AnalyseArticle(ProductReader.Article article)
     {
-        var pricePerLiter = _pricePerUnitTextAnalyser.ResolvePricePerLiter(article.PricePerUnitText);
-        var numberOfUnits = _shortDescriptionTextAnalyser.ResolveNumberOfUnits(article.ShortDescription);
+        var pricePerLiter = pricePerUnitTextAnalyser.ResolvePricePerLiter(article.PricePerUnitText);
+        var numberOfUnits = shortDescriptionTextAnalyser.ResolveNumberOfUnits(article.ShortDescription);
 
         return new AnalysedArticle(article.ProductId,
             article.Id,

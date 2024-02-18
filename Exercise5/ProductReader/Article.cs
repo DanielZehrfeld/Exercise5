@@ -1,23 +1,15 @@
 ﻿namespace Exercise5.ProductReader;
 
-internal class Article
+public class Article(
+    long productId,
+    long id,
+    decimal? price,
+    string shortDescription,
+    string pricePerUnitText)
 {
-    public long ProductId { get; }
-    public long Id { get; }
-    public decimal? Price { get; }
-    public string ShortDescription { get; }
-    public string PricePerUnitText { get; }
-
-    public Article(long productId,
-        long id,
-        decimal? price,
-        string shortDescription,
-        string pricePerUnitText)
-    {
-        ProductId = productId;
-        Id = id;
-        Price = price;
-        ShortDescription = shortDescription;
-        PricePerUnitText = pricePerUnitText;
-    }
+    public long ProductId { get; } = productId;
+    public long Id { get; } = id;
+    public decimal? Price { get; } = price;
+    public string ShortDescription { get; } = shortDescription;
+    public string PricePerUnitText { get; } = pricePerUnitText;
 }

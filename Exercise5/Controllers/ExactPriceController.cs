@@ -8,22 +8,22 @@ using Swashbuckle.AspNetCore.Annotations;
 namespace Exercise5.Controllers;
 
 [ApiController]
-[Route("api/products/analyseb")]
-public class NumberOfBottlesController(
+[Route("api/products/analysea")]
+public class ExactPriceController(
     IProductReader productReader,
     IArticlesAnalyzer articlesAnalyzer,
-    INumberOfBottlesAnalyser numberOfBottlesAnalyser)
+    IExactPriceAnalyser exactPriceAnalyser)
     : ControllerBase
 {
     private const string ExampleUrl = "https://flapotest.blob.core.windows.net/test/ProductData.json";
 
-    [HttpGet(Name = "maxNumberOfBottles")]
-    public async Task<NumberOfBottlesResult> MaxNumberOfBottles([FromQuery, SwaggerParameter("descxxxription", Required = true)] string url)
+    [HttpGet(Name = "exactPrice")]
+    public async Task<ExactPriceResult> ExactPrice([FromQuery, SwaggerParameter("descxxxription", Required = true)] string url)
     {
         var products = await productReader.LoadProductsAsync(url);
 
         var articles = articlesAnalyzer.Analyse(products);
 
-        return numberOfBottlesAnalyser.GetMaxNumberOfBottlesArticles(articles);
+        return exactPriceAnalyser.GetExactPriceItemsResult(articles, 17.99M);
     }
 }

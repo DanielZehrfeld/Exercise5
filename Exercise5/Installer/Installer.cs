@@ -14,7 +14,7 @@ internal static class Installer
         services.AddSingleton<IPricePerUnitTextAnalyser, PricePerUnitTextAnalyser>();
         services.AddSingleton<IShortDescriptionTextAnalyser, ShortDescriptionTextAnalyser>();
         services.AddSingleton<INumberOfBottlesAnalyser, NumberOfBottlesAnalyser>();
-
-        
+        services.AddSingleton<IExactPriceAnalyser, ExactPriceAnalyser>();
+        services.AddSingleton<IPricePerLitreAnalyser, PricePerLitreAnalyser>();
     }
 }

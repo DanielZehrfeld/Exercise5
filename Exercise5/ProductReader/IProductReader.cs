@@ -1,6 +1,6 @@
 ﻿namespace Exercise5.ProductReader;
 
-internal interface IProductReader
+public interface IProductReader
 {
     Task<IEnumerable<Article>> LoadProductsAsync(string url);
 }

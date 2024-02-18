@@ -2,17 +2,11 @@
 
 namespace Exercise5.Controllers.Output;
 
-public class PricePerLitre
+public class PricePerLitre(decimal price, ResultArticle[] articles)
 {
-    [JsonPropertyName("Price")]
-    public decimal Price { get; }
+    [JsonPropertyName("price")]
+    public decimal Price { get; } = price;
 
-    [JsonPropertyName("Article")]
-    public ResultArticle Article { get; }
-
-    public PricePerLitre(decimal price, ResultArticle article)
-    {
-        Price = price;
-        Article = article;
-    }
+    [JsonPropertyName("articles")]
+    public ResultArticle[] Articles { get; } = articles;
 }

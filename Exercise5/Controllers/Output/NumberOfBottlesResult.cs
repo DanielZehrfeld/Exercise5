@@ -2,17 +2,11 @@
 
 namespace Exercise5.Controllers.Output;
 
-public class NumberOfBottlesResult
+public class NumberOfBottlesResult(int numberOfBottles, ResultArticle[] articles)
 {
-    [JsonPropertyName("NumberOfBottles")]
-    public int NumberOfBottles { get; }
+    [JsonPropertyName("numberOfBottles")]
+    public int NumberOfBottles { get; } = numberOfBottles;
 
-    [JsonPropertyName("Articles")]
-    public ResultArticle[] Articles { get; }
-
-    public NumberOfBottlesResult(int numberOfBottles, ResultArticle[] articles)
-    {
-        NumberOfBottles = numberOfBottles;
-        Articles = articles;
-    }
+    [JsonPropertyName("articles")]
+    public ResultArticle[] Articles { get; } = articles;
 }
