@@ -3,7 +3,6 @@ using Exercise5.Analyzer.Article;
 using Exercise5.Controllers.Output;
 using Exercise5.ProductReader;
 using Microsoft.AspNetCore.Mvc;
-using Swashbuckle.AspNetCore.Annotations;
 
 namespace Exercise5.Controllers;
 
@@ -23,9 +22,7 @@ public class AnalyseController(
     [HttpGet]
     public async Task<AllAnalyseResult> All([FromQuery] string url = ExampleUrl)
     {
-        var products = await productReader.LoadProductsAsync(url);
-
-        var articles = articlesAnalyzer.Analyse(products);
+        var articles = await LoadAndAnalyzeArticles(url);
 
         var exactPriceResult = exactPriceAnalyser.GetExactPriceItemsResult(articles, DefaultExactPrice);
         var numberOfBottlesResult = numberOfBottlesAnalyser.GetMaxNumberOfBottlesArticles(articles);
@@ -34,12 +31,11 @@ public class AnalyseController(
         return new AllAnalyseResult(exactPriceResult, numberOfBottlesResult, pricePerLitreResult);
     }
 
-    [HttpGet("exactPrice/{price}")]
+    [HttpGet("exactPrice")]
+    [HttpGet("exactPrice/{price:decimal?}")]
     public async Task<ExactPriceResult> ExactPrice([FromQuery] string url = ExampleUrl, [FromRoute] decimal price = DefaultExactPrice)
     {
-        var products = await productReader.LoadProductsAsync(url);
-
-        var articles = articlesAnalyzer.Analyse(products);
+        var articles = await LoadAndAnalyzeArticles(url);
 
         return exactPriceAnalyser.GetExactPriceItemsResult(articles, price);
     }
@@ -47,9 +43,7 @@ public class AnalyseController(
     [HttpGet("maxNumberOfBottles")]
     public async Task<NumberOfBottlesResult> MaxNumberOfBottles([FromQuery] string url = ExampleUrl)
     {
-        var products = await productReader.LoadProductsAsync(url);
-
-        var articles = articlesAnalyzer.Analyse(products);
+        var articles = await LoadAndAnalyzeArticles(url);
 
         return numberOfBottlesAnalyser.GetMaxNumberOfBottlesArticles(articles);
     }
@@ -57,10 +51,15 @@ public class AnalyseController(
     [HttpGet("minMaxPricePerLitre")]
     public async Task<PricePerLitreResult> MinMaxPricePerLitre([FromQuery] string url = ExampleUrl)
     {
-        var products = await productReader.LoadProductsAsync(url);
-
-        var articles = articlesAnalyzer.Analyse(products);
+        var articles = await LoadAndAnalyzeArticles(url);
 
         return pricePerLitreAnalyser.GetMinMaxPricePerLiter(articles);
+    }
+
+    private async Task<IReadOnlyCollection<AnalysedArticle>> LoadAndAnalyzeArticles(string url)
+    {
+        var products = await productReader.LoadProductsAsync(url);
+
+        return articlesAnalyzer.Analyse(products);
     }
 }
