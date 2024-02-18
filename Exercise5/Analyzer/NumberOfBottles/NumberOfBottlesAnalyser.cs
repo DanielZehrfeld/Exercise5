@@ -5,7 +5,7 @@ using Exercise5.Controllers.Output;
 
 namespace Exercise5.Analyzer.NumberOfBottles;
 
-public class NumberOfBottlesAnalyser : INumberOfBottlesAnalyser
+internal class NumberOfBottlesAnalyser : INumberOfBottlesAnalyser
 {
     public NumberOfBottlesResult GetMaxNumberOfBottlesArticles(IReadOnlyCollection<AnalysedArticle> articles)
     {

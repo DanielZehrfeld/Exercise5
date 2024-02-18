@@ -2,7 +2,7 @@
 
 namespace Exercise5.Analyzer.Article;
 
-public interface IArticleAnalyzer
+internal interface IArticleAnalyzer
 {
     IReadOnlyCollection<AnalysedArticle> Analyse(IEnumerable<ProductReader.Article> articles);
 }

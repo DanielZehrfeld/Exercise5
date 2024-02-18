@@ -1,6 +1,6 @@
 ﻿namespace Exercise5.ProductReader;
 
-public interface IRestServiceDataReader
+internal interface IRestServiceDataReader
 {
     Task<string> GetStringContentAsync(string uri);
 }

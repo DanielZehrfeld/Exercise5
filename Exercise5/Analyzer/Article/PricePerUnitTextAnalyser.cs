@@ -1,6 +1,6 @@
 ﻿namespace Exercise5.Analyzer.Article;
 
-public class PricePerUnitTextAnalyser : IPricePerUnitTextAnalyser
+internal class PricePerUnitTextAnalyser : IPricePerUnitTextAnalyser
 {
     public (decimal pricePerLiter, bool hasError) ResolvePricePerLiter(string pricePerUnit)
     {

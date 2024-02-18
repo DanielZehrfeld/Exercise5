@@ -2,7 +2,7 @@
 
 namespace Exercise5.Controllers.Output;
 
-public class CombinedAnalyseResult
+internal class CombinedAnalyseResult
 {
     [JsonPropertyName("ExactPriceResult")]
     public ExactPriceResult ExactPriceResult { get; }

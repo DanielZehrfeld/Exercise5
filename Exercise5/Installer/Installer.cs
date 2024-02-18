@@ -4,7 +4,7 @@ using Exercise5.ProductReader;
 
 namespace Exercise5.Installer;
 
-public static class Installer
+internal static class Installer
 {
     public static void ConfigureServices(IServiceCollection services)
     {

@@ -2,7 +2,7 @@
 
 namespace Exercise5.ProductReader.Input;
 
-public class JsonArticle
+internal class JsonArticle
 {
     [JsonPropertyName("id")]
     public long? Id { get; set; }

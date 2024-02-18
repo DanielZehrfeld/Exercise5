@@ -1,6 +1,6 @@
 ﻿namespace Exercise5.ProductReader;
 
-public class RestServiceDataReader : IRestServiceDataReader
+internal class RestServiceDataReader : IRestServiceDataReader
 {
     public async Task<string> GetStringContentAsync(string uri)
     {

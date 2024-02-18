@@ -8,7 +8,7 @@ namespace Exercise5.Controllers;
 
 [ApiController]
 [Route("api/products/analyse")]
-public class NumberOfBottlesController : ControllerBase
+internal class NumberOfBottlesController : ControllerBase
 {
     private readonly IProductReader _productReader;
     private readonly IArticleAnalyzer _articleAnalyzer;

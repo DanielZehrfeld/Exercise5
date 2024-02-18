@@ -2,7 +2,7 @@
 
 namespace Exercise5.ProductReader.Extensions;
 
-public static class ArticleExt
+internal static class ArticleExt
 {
     public static Article? ConvertArticleToResultProductData(this JsonArticle jsonArticle, long? productId)
     {

@@ -14,9 +14,9 @@ public abstract class ProductReaderSpecs : Spec
 {
     protected const string UriToLoad = "UriToLoad";
 
-    protected readonly IRestServiceDataReader RestServiceDataReader = A.Fake<IRestServiceDataReader>(opts => opts.Strict());
+    internal readonly IRestServiceDataReader RestServiceDataReader = A.Fake<IRestServiceDataReader>(opts => opts.Strict());
 
-    protected IEnumerable<Article> ResultArticles;
+    internal IEnumerable<Article> ResultArticles;
 
     private Exercise5.ProductReader.ProductReader _sut;
 

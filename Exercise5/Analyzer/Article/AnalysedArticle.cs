@@ -1,6 +1,6 @@
 ﻿namespace Exercise5.Analyzer.Article;
 
-public class AnalysedArticle
+internal class AnalysedArticle
 {
     public long ProductId { get; }
     public long ArticleId { get; }

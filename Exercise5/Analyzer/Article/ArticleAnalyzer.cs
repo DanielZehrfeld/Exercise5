@@ -4,7 +4,7 @@ using Exercise5.ProductReader;
 
 namespace Exercise5.Analyzer.Article;
 
-public class ArticleAnalyzer : IArticleAnalyzer
+internal class ArticleAnalyzer : IArticleAnalyzer
 {
     private readonly IPricePerUnitTextAnalyser _pricePerUnitTextAnalyser;
     private readonly IShortDescriptionTextAnalyser _shortDescriptionTextAnalyser;

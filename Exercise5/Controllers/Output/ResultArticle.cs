@@ -2,7 +2,7 @@
 
 namespace Exercise5.Controllers.Output;
 
-public class ResultArticle
+internal class ResultArticle
 {
     [JsonPropertyName("ProductId")]
     public long ProductId { get; }
