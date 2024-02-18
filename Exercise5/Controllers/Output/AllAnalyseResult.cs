@@ -10,7 +10,7 @@ public class AllAnalyseResult(
     [JsonPropertyName("exactPrice")]
     public ExactPriceResult ExactPriceResult { get; } = exactPriceResult;
 
-    [JsonPropertyName("numberOfBottles")]
+    [JsonPropertyName("maxNumberOfBottles")]
     public NumberOfBottlesResult NumberOfBottlesResult { get; } = numberOfBottlesResult;
 
     [JsonPropertyName("pricePerLitre")]

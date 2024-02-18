@@ -1,5 +1,6 @@
 using Exercise5.Installer;
 using System.Runtime.CompilerServices;
+using Swashbuckle.AspNetCore.Swagger;
 
 [assembly: InternalsVisibleTo("Exercise5.Test")]
 [assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
