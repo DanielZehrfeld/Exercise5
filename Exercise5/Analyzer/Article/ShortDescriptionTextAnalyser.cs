@@ -4,7 +4,19 @@ internal class ShortDescriptionTextAnalyser : IShortDescriptionTextAnalyser
 {
     public int? ResolveNumberOfUnits(string shortDescription)
     {
+        int? unitCountResult = default;
 
-        return 0; //ToDo
+        var positionOfX = shortDescription.IndexOf('x');
+
+        var stringToParse = positionOfX > 0
+            ? shortDescription[..positionOfX]
+            : shortDescription;
+
+        if (int.TryParse(stringToParse, out var parseResult))
+        {
+            unitCountResult = parseResult;
+        }
+
+        return unitCountResult;
     }
 }

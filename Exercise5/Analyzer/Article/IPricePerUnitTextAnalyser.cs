@@ -2,5 +2,5 @@
 
 internal interface IPricePerUnitTextAnalyser
 {
-    decimal? ResolvePricePerLiter(string pricePerUnit);
+    decimal? ResolvePricePerLiter(string articlePricePerUnitText);
 }

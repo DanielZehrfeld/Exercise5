@@ -3,12 +3,13 @@ using Exercise5.Test.Utils;
 using FakeItEasy;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 // ReSharper disable IdentifierTypo
 // ReSharper disable InconsistentNaming
 
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
-namespace Exercise5.Test.ProductReader;
+namespace Exercise5.Test.ProductReader.ProductReaderSpecs;
 
 public abstract class ProductReaderSpec : Spec
 {
@@ -79,9 +80,9 @@ public class Wenn_valide_Testdaten_gelesen_werden : ProductReaderSpec
 
     private readonly Article[] _expected =
     {
-        new(1, 2, "u2", 0.22M, "sd2", "ppu2"),
-        new(3, 4, "u4", 44M, "sd4", "ppu4"),
-        new(3, 5, "u5", 55.5M, "sd5", "ppu5"),
+        new(1, 2, 0.22M, "sd2", "ppu2"),
+        new(3, 4, 44M, "sd4", "ppu4"),
+        new(3, 5, 55.5M, "sd5", "ppu5"),
     };
 
     protected override void EstablishContext()
@@ -145,9 +146,9 @@ public class Wenn_in_den_Testdaten_Produkten_Angaben_fehlen : ProductReaderSpec
 
     private readonly Article[] _expected =
     {
-        new(1, 2, string.Empty, default, string.Empty, string.Empty),
-        new(3, 4, string.Empty, default, string.Empty, string.Empty),
-        new(3, 5, string.Empty, default, string.Empty, string.Empty),
+        new(1, 2, default, string.Empty, string.Empty),
+        new(3, 4, default, string.Empty, string.Empty),
+        new(3, 5, default, string.Empty, string.Empty),
     };
 
     protected override void EstablishContext()
@@ -190,7 +191,7 @@ public class Wenn_in_den_Testdaten_Produk_oder_Artikel_ID_fehlen : ProductReader
 
     private readonly Article[] _expected =
     {
-        new(3, 4, string.Empty, default, string.Empty, string.Empty)
+        new(3, 4, default, string.Empty, string.Empty)
     };
 
     protected override void EstablishContext()

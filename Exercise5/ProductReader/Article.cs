@@ -3,24 +3,21 @@
 internal class Article
 {
     public long ProductId { get; }
-    public long ArticleId { get; }
-    public string ArticleUnit { get; }
-    public decimal? ArticlePrice { get; }
-    public string ArticleShortDescription { get; }
-    public string ArticlePricePerUnitText { get; }
+    public long Id { get; }
+    public decimal? Price { get; }
+    public string ShortDescription { get; }
+    public string PricePerUnitText { get; }
 
     public Article(long productId,
-        long articleId,
-        string articleUnit,
-        decimal? articlePrice,
-        string articleShortDescription,
-        string articlePricePerUnitText)
+        long id,
+        decimal? price,
+        string shortDescription,
+        string pricePerUnitText)
     {
         ProductId = productId;
-        ArticleId = articleId;
-        ArticleUnit = articleUnit;
-        ArticlePrice = articlePrice;
-        ArticleShortDescription = articleShortDescription;
-        ArticlePricePerUnitText = articlePricePerUnitText;
+        Id = id;
+        Price = price;
+        ShortDescription = shortDescription;
+        PricePerUnitText = pricePerUnitText;
     }
 }

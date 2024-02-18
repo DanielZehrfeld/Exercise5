@@ -2,6 +2,7 @@ using Exercise5.Installer;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("Exercise5.Test")]
+[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
 
 var builder = WebApplication.CreateBuilder(args);
 

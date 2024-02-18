@@ -11,15 +11,15 @@ namespace Exercise5.Controllers;
 internal class NumberOfBottlesController : ControllerBase
 {
     private readonly IProductReader _productReader;
-    private readonly IArticleAnalyzer _articleAnalyzer;
+    private readonly IArticlesAnalyzer _articlesAnalyzer;
     private readonly INumberOfBottlesAnalyser _numberOfBottlesAnalyser;
 
     public NumberOfBottlesController(IProductReader productReader,
-        IArticleAnalyzer articleAnalyzer,
+        IArticlesAnalyzer articlesAnalyzer,
         INumberOfBottlesAnalyser numberOfBottlesAnalyser)
     {
         _productReader = productReader;
-        _articleAnalyzer = articleAnalyzer;
+        _articlesAnalyzer = articlesAnalyzer;
         _numberOfBottlesAnalyser = numberOfBottlesAnalyser;
     }
 
@@ -28,7 +28,7 @@ internal class NumberOfBottlesController : ControllerBase
     {
         var products = await _productReader.LoadProductsAsync(url);
 
-        var articles = _articleAnalyzer.Analyse(products);
+        var articles = _articlesAnalyzer.Analyse(products);
 
         return _numberOfBottlesAnalyser.GetMaxNumberOfBottlesArticles(articles);
     }

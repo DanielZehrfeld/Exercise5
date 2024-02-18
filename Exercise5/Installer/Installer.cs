@@ -10,7 +10,7 @@ internal static class Installer
     {
         services.AddSingleton<IProductReader, ProductReader.ProductReader>();
         services.AddSingleton<IRestServiceDataReader, RestServiceDataReader>();
-        services.AddSingleton<IArticleAnalyzer, ArticleAnalyzer>();
+        services.AddSingleton<IArticlesAnalyzer, ArticlesAnalyzer>();
         services.AddSingleton<IPricePerUnitTextAnalyser, PricePerUnitTextAnalyser>();
         services.AddSingleton<IShortDescriptionTextAnalyser, ShortDescriptionTextAnalyser>();
         services.AddSingleton<INumberOfBottlesAnalyser, NumberOfBottlesAnalyser>();

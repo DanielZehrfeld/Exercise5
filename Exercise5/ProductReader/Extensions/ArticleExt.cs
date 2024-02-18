@@ -11,11 +11,10 @@ internal static class ArticleExt
         return isValid
             ? new Article(
                 productId: productId ?? 0,
-                articleId: jsonArticle.Id ?? 0,
-                articleUnit: jsonArticle.Unit ?? string.Empty,
-                articlePrice: jsonArticle.Price,
-                articleShortDescription: jsonArticle.ShortDescription ?? string.Empty,
-                articlePricePerUnitText: jsonArticle.PricePerUnitText ?? string.Empty)
+                id: jsonArticle.Id ?? 0,
+                price: jsonArticle.Price,
+                shortDescription: jsonArticle.ShortDescription ?? string.Empty,
+                pricePerUnitText: jsonArticle.PricePerUnitText ?? string.Empty)
             : default;
     }
 }
