@@ -48,10 +48,10 @@ public class Wenn_valide_Artikel_analysiert_werden : ArticlesAnalyzerSpec
 
     protected override void BecauseOf()
     {
-        _result = Sut.Analyse(new[]
-        {
+        _result = Sut.Analyse(
+        [
             new Exercise5.ProductReader.Article(ProductId, ArticleId, Price, ShortDescriptionTest, PricePerUnitText),
-        });
+        ]);
     }
 
     [TestMethod]
@@ -85,10 +85,10 @@ public class Wenn_Artikel_mit_fehlenden_Angaben_analysiert_werden : ArticlesAnal
 
     protected override void BecauseOf()
     {
-        _result = Sut.Analyse(new[]
-        {
+        _result = Sut.Analyse(
+        [
             new Exercise5.ProductReader.Article(3, 4, default, "desc", "ppu"),
-        });
+        ]);
     }
 
     [TestMethod]

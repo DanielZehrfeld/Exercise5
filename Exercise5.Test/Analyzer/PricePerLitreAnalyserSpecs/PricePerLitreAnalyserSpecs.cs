@@ -12,13 +12,13 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Exercise5.Test.Analyzer.NumberOfBottlesAnalyserSpecs;
 
-public abstract class NumberOfBottlesAnalyserSpec : Spec
+public abstract class PricePerLitreAnalyserSpec : Spec
 {
     internal NumberOfBottlesAnalyser Sut = new();
 }
 
 [TestClass]
-public class Wenn_aus_Artikeln_die_mit_den_meisten_NumberOfUnits_ermittelt_werden : NumberOfBottlesAnalyserSpec
+public class Wenn_aus_Artikeln_die_mit_den_meisten_NumberOfUnits_ermittelt_werden : PricePerLitreAnalyserSpec
 {
     private readonly NumberOfBottlesResult _expectedResult = new(
         numberOfBottles: 5,
@@ -49,7 +49,7 @@ public class Wenn_aus_Artikeln_die_mit_den_meisten_NumberOfUnits_ermittelt_werde
 }
 
 [TestClass]
-public class Wenn_eine_leere_Artikelliste_analysiert_wird : NumberOfBottlesAnalyserSpec
+public class Wenn_eine_leere_Artikelliste_analysiert_wird : PricePerLitreAnalyserSpec
 {
     private readonly NumberOfBottlesResult _expectedResult = new(
         numberOfBottles: 0,
@@ -70,7 +70,7 @@ public class Wenn_eine_leere_Artikelliste_analysiert_wird : NumberOfBottlesAnaly
 }
 
 [TestClass]
-public class Wenn_in_der_Artikelliste_nur_Artikel_ohne_Flaschenzahl_enthalten_sind : NumberOfBottlesAnalyserSpec
+public class Wenn_in_der_Artikelliste_nur_Artikel_ohne_Flaschenzahl_enthalten_sind : PricePerLitreAnalyserSpec
 {
     private readonly NumberOfBottlesResult _expectedResult = new(
         numberOfBottles: 0,
@@ -96,7 +96,7 @@ public class Wenn_in_der_Artikelliste_nur_Artikel_ohne_Flaschenzahl_enthalten_si
 }
 
 [TestClass]
-public class Wenn_in_der_Artikelliste_nur_Artikel_mit_Flaschnezahl_null_enthalten_sind : NumberOfBottlesAnalyserSpec
+public class Wenn_in_der_Artikelliste_nur_Artikel_mit_Flaschnezahl_null_enthalten_sind : PricePerLitreAnalyserSpec
 {
     private readonly NumberOfBottlesResult _expectedResult = new(
         numberOfBottles: 0,

@@ -79,11 +79,11 @@ public class Wenn_valide_Testdaten_gelesen_werden : ProductReaderSpec
 ]";
 
     private readonly Article[] _expected =
-    {
+    [
         new(1, 2, 0.22M, "sd2", "ppu2"),
         new(3, 4, 44M, "sd4", "ppu4"),
         new(3, 5, 55.5M, "sd5", "ppu5"),
-    };
+    ];
 
     protected override void EstablishContext()
     {
@@ -145,11 +145,11 @@ public class Wenn_in_den_Testdaten_Produkten_Angaben_fehlen : ProductReaderSpec
 ]";
 
     private readonly Article[] _expected =
-    {
+    [
         new(1, 2, default, string.Empty, string.Empty),
         new(3, 4, default, string.Empty, string.Empty),
         new(3, 5, default, string.Empty, string.Empty),
-    };
+    ];
 
     protected override void EstablishContext()
     {
@@ -190,9 +190,9 @@ public class Wenn_in_den_Testdaten_Produk_oder_Artikel_ID_fehlen : ProductReader
 ]";
 
     private readonly Article[] _expected =
-    {
+    [
         new(3, 4, default, string.Empty, string.Empty)
-    };
+    ];
 
     protected override void EstablishContext()
     {
