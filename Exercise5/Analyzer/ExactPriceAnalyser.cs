@@ -10,7 +10,7 @@ internal class ExactPriceAnalyser : IExactPriceAnalyser
     {
         var resultItems = articles
             .Where(article => article.TotalPrice == price)
-            .OrderBy(article => article.PricePerLiter ?? 0)
+            .OrderBy(article => article.PricePerLiter)
             .Select(article => article.ToResultArticle())
             .ToArray();
 

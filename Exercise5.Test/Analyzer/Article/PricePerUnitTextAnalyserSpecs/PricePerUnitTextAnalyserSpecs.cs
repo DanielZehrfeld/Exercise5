@@ -2,6 +2,7 @@
 using Exercise5.Test.Utils;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NeverNull;
 
 // ReSharper disable IdentifierTypo
 // ReSharper disable InconsistentNaming
@@ -13,7 +14,7 @@ namespace Exercise5.Test.Analyzer.Article.PricePerUnitTextAnalyserSpecs;
 public abstract class PricePerUnitTextAnalyserSpec : Spec
 {
     protected string _pricePerUnitString;
-    private decimal? _parseResult;
+    private Option<decimal> _parseResult;
 
     private readonly PricePerUnitTextAnalyser Sut = new();
 
@@ -22,7 +23,7 @@ public abstract class PricePerUnitTextAnalyserSpec : Spec
         _parseResult = Sut.ResolvePricePerLiter(_pricePerUnitString);
     }
 
-    protected void CheckResult(decimal? expected)
+    protected void CheckResult(Option<decimal> expected)
     {
         _parseResult.Should().Be(expected);
     }

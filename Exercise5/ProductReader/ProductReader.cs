@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using Exercise5.ProductReader.Extensions;
+using NeverNull.Combinators;
 
 namespace Exercise5.ProductReader;
 
@@ -21,7 +22,7 @@ internal class ProductReader(IRestServiceDataReader restServiceDataReader) : IPr
     private static IEnumerable<Article> ConvertToResultProductData(Input.JsonProduct jsonProduct)
         => jsonProduct
                .Articles?
-               .Select(article => article.ConvertArticleToResultProductData(jsonProduct.Id))
-               .OfType<Article>()
+               .Select(article => article.ConvertArticleToResultProductData(jsonProduct.Id.ToOption()))
+               .SelectValues()
            ?? [];
 }

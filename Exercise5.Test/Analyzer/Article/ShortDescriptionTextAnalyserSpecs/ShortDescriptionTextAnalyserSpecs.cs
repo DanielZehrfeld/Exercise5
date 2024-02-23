@@ -2,6 +2,7 @@
 using Exercise5.Test.Utils;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NeverNull;
 
 // ReSharper disable IdentifierTypo
 // ReSharper disable InconsistentNaming
@@ -13,7 +14,7 @@ namespace Exercise5.Test.Analyzer.Article.ShortDescriptionTextAnalyserSpecs;
 public abstract class ShortDescriptionTextAnalyserSpec : Spec
 {
     protected string _shortDescriptionString;
-    private int? _parseResult;
+    private Option<int> _parseResult;
 
     private readonly ShortDescriptionTextAnalyser Sut = new();
 
@@ -22,7 +23,7 @@ public abstract class ShortDescriptionTextAnalyserSpec : Spec
         _parseResult = Sut.ResolveNumberOfUnits(_shortDescriptionString);
     }
 
-    protected void CheckResult(int? expected)
+    protected void CheckResult(Option<int> expected)
     {
         _parseResult.Should().Be(expected);
     }

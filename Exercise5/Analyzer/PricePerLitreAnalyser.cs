@@ -1,6 +1,7 @@
 ﻿using Exercise5.Analyzer.Article;
 using Exercise5.Analyzer.Extensions;
 using Exercise5.Controllers.Output;
+using NeverNull.Combinators;
 
 namespace Exercise5.Analyzer;
 
@@ -9,8 +10,9 @@ internal class PricePerLitreAnalyser : IPricePerLitreAnalyser
     public PricePerLitreResult GetMinMaxPricePerLiter(IEnumerable<AnalysedArticle> articles)
     {
         var ordered = articles
-            .Where(article => article.PricePerLiter.HasValue)
-            .GroupBy(article => (decimal) article.PricePerLiter!)
+            .Select(article => article.PricePerLiter.Select(articlePricePerLiter => (articlePricePerLiter, article)))
+            .SelectValues()
+            .GroupBy(article => article.articlePricePerLiter, article => article.article)
             .OrderBy(articleGroup => articleGroup.Key)
             .Select(articleGroup => (Price: articleGroup.Key, Items: articleGroup))
             .ToList();

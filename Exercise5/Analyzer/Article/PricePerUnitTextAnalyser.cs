@@ -1,10 +1,12 @@
-﻿namespace Exercise5.Analyzer.Article;
+﻿using NeverNull;
+
+namespace Exercise5.Analyzer.Article;
 
 internal class PricePerUnitTextAnalyser : IPricePerUnitTextAnalyser
 {
-    public decimal? ResolvePricePerLiter(string articlePricePerUnitText)
+    public Option<decimal> ResolvePricePerLiter(string articlePricePerUnitText)
     {
-        decimal? result = default;
+        var result = Option<decimal>.None; 
 
         var trimmed = articlePricePerUnitText.Trim(' ', '(', ')');
         var unitPosition = trimmed.IndexOf("€/Liter", StringComparison.Ordinal);

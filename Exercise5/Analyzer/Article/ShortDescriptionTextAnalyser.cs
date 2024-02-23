@@ -1,10 +1,12 @@
-﻿namespace Exercise5.Analyzer.Article;
+﻿using NeverNull;
+
+namespace Exercise5.Analyzer.Article;
 
 internal class ShortDescriptionTextAnalyser : IShortDescriptionTextAnalyser
 {
-    public int? ResolveNumberOfUnits(string shortDescription)
+    public Option<int> ResolveNumberOfUnits(string shortDescription)
     {
-        int? unitCountResult = default;
+        var unitCountResult = Option<int>.None;
 
         var positionOfX = shortDescription.IndexOf('x');
 
